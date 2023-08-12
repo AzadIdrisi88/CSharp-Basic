@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Resturant_Info : System.Web.UI.Page
+public partial class Restaurantmasteraspx : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -26,14 +26,11 @@ public partial class Resturant_Info : System.Web.UI.Page
             lblpin.Text = dr.Pincode;
             lbltag.Text = dr.Tagline;
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             lbl.Text = ex.Message;
-            
-        
-        }
 
-        
-        
+
+        }
     }
 }
