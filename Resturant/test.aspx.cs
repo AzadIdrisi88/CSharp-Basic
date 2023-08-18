@@ -13,6 +13,6 @@ public partial class test : System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        lblusertype.Text = LoginManager.getusertyebyusername("clark@123");
+        lblusertype.Text ="" +  LoginManager.isuserlogin(Session);
     }
 }

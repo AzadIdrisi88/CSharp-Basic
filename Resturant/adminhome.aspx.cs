@@ -10,20 +10,37 @@ public partial class adminhome : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        if (Session["usertype"] != null)
-        {
+        LoginManager.protectAdmin(Session, Response);
 
-            if (!(Session["usertype"].Equals("Admin")))
-                Response.Redirect("dologin.aspx");
-        }
-          
-
-        LoginManager.protectpage(Session, Response);
-        lblusertype.Text = LoginManager.getcurrentusertype(Session);
-        lblusername.Text = LoginManager.getcurrentuser(Session);
+        
+        
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        LoginManager.dologout(Session);
+        try
+        {
+            DataSet1TableAdapters.menucategoryTableAdapter da = new DataSet1TableAdapters.menucategoryTableAdapter();
+            da.Insert(txtname.Text, txtcomment.Text);
+            GridView1.DataBind();
+            lbl.Text = "Item Added" + da.maxcategory();
+
+        }
+        catch (Exception ex)
+        {
+            lbl.Text = ex.Message;
+        }
     }
+   
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+
+        txtname.Text = "";
+        txtcomment.Text = "";
+        lbl.Text = "";
+    
+
+    }
+
+
+   
 }

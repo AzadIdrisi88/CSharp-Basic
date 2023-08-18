@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class dologin : System.Web.UI.Page
+public partial class Dologins : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -15,7 +15,7 @@ public partial class dologin : System.Web.UI.Page
     {
         try
         {
-
+            // LoginManager.dologin(txtusrname, txtpsswrd, Response, Session); or
             string username = txtusrname.Text;
             string password = txtpsswrd.Text;
             bool result = LoginManager.dologin(username, password, Response, Session);
@@ -28,5 +28,4 @@ public partial class dologin : System.Web.UI.Page
             lbl.Text = ex.Message;
         }
     }
-    
 }

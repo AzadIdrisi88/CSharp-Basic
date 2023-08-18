@@ -9,6 +9,7 @@ public partial class SiteMaster : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-    
+        lblusertype.Text = LoginManager.getcurrentusertype(Session);
+        lblusername.Text = LoginManager.getcurrentuser(Session);
     }
 }

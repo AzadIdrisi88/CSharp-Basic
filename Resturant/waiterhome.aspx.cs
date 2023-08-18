@@ -9,8 +9,9 @@ public partial class waiterhome : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        LoginManager.protectWaiter(Session, Response);
         LoginManager.protectpage(Session, Response);
-        lblusertype.Text = LoginManager.getcurrentusertype(Session);
+        
     }
     protected void Button1_Click(object sender, EventArgs e)
     {

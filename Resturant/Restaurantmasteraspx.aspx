@@ -6,8 +6,9 @@
 
 <div class="row">
 <div class="col-12">
-         <asp:Label ID="lbl" runat="server" Text=""></asp:Label>
-        <asp:Label ID="lblRname" runat="server" Text=""></asp:Label><br /><br />
+
+        <asp:Label ID="lbl" runat="server" Text="" ></asp:Label>
+        <asp:Label ID="lblRname" runat="server" Text="" CssClass="form-control"></asp:Label><br /><br />
         <asp:Label ID="lblnumber" runat="server" Text=""></asp:Label><br /><br />
         <asp:Label ID="lbladdress" runat="server" Text=""></asp:Label><br /><br />
         <asp:Label ID="lblpin" runat="server" Text=""></asp:Label><br /><br />

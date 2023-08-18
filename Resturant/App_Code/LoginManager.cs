@@ -8,7 +8,7 @@ using System.Web;
 /// </summary>
 public class LoginManager
 {
-    private static string homepage = "Home.aspx", loginpage = "dologin.aspx";
+    private static string homepage = "Home.aspx", loginpage = "Dologins.aspx";
 
   public static bool isusernameandpasswordcorrect(object username,object password)
  {
@@ -65,8 +65,10 @@ public class LoginManager
           response.Redirect("clerkhome.aspx");
       if (session["usertype"].Equals("Waiter"))
           response.Redirect("waiterhome.aspx");
+      if(session["usertype"].Equals("Customer"))
+          response.Redirect("customerhome.aspx");
       
-      response.Redirect("Home.aspx");
+     
       return true;
   
   }
@@ -81,11 +83,12 @@ public class LoginManager
       return "" + session["usertype"];
   }
 
-  public static void dologout(System.Web.SessionState.HttpSessionState session)
+  public static void dologout(System.Web.SessionState.HttpSessionState session,HttpResponse response)
   {
       session.Abandon();
+      response.Redirect(loginpage);
   }
-  public static Boolean isuserlogin(System.Web.SessionState.HttpSessionState session)
+  public static bool isuserlogin(System.Web.SessionState.HttpSessionState session)
   {
       if (session["username"] == null)
       return false;
@@ -95,8 +98,55 @@ public class LoginManager
   {
       if (isuserlogin(session))
           return true;
-      response.Redirect("dologin.aspx");
+      response.Redirect("Dologins.aspx");
       return false;
   }
-  
+  public static void protectAdmin(System.Web.SessionState.HttpSessionState session, HttpResponse response)
+  {
+      if (!getcurrentusertype(session).Equals("Admin"))
+
+          response.Redirect("Dologins.aspx");
+  }
+  public static Boolean isAdminlogin(System.Web.SessionState.HttpSessionState session)
+  {
+      if (!getcurrentusertype(session).Equals("Admin"))
+          return true;
+      return false;
+  }
+
+  public static void protectClerk(System.Web.SessionState.HttpSessionState session, HttpResponse response)
+  {
+      if (!getcurrentusertype(session).Equals("Clerk"))
+          response.Redirect("Dologins.aspx");
+
+  }
+  public static Boolean isClerklogin(System.Web.SessionState.HttpSessionState session)
+  {
+      if(!getcurrentusertype(session).Equals("Clerk"))
+          return false;
+         return true;
+  }
+  public static void protectWaiter(System.Web.SessionState.HttpSessionState session, HttpResponse response)
+  {
+      if(!getcurrentusertype(session).Equals("Waiter"))
+          response.Redirect("Dologins.aspx");
+  }
+  public static Boolean isWaiterlogin(System.Web.SessionState.HttpSessionState session)
+  {
+      if (!getcurrentusertype(session).Equals("Waiter"))
+      return false;
+      return true;
+  }
+  public static void protectCustomer(System.Web.SessionState.HttpSessionState session, HttpResponse response)
+  {
+      if (!getcurrentusertype(session).Equals("Customer"))
+          response.Redirect("Dologins.aspx");
+          
+  }
+  public static Boolean isCustomerlogin(System.Web.SessionState.HttpSessionState session)
+  {
+      if (!getcurrentusertype(session).Equals("Customer"))
+          return false;
+      return true;
+  }
 }

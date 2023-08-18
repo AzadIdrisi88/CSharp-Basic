@@ -8,10 +8,8 @@
 <div class="col-md-12">
 
 
-    <asp:Label ID="lblusername" runat="server" Text=""></asp:Label><br /><br />
-    <asp:Label ID="lblusertype" runat="server" Text=""></asp:Label><br /><br />
+    
 
-    <asp:Button ID="Button1" runat="server" Text="LogOut" OnClick="Button1_Click" />
 
 
 </div>
