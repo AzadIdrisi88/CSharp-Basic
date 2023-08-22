@@ -14,18 +14,14 @@
      crossorigin="anonymous">
 
 <style>
-    *
-    {
-     overflow:hidden;   
-    }
 .btn1
 {
-padding:4px 224px;
+padding:4px 220px;
 background-color:#fa61a3;
 font-size: 18px;
 color: white;
 outline: none;
-border-radius: 8px;
+border-radius: 12px;
 font-family: Cursive;
 }
 .btn1:hover
@@ -43,7 +39,11 @@ color: black;
 {
    
     color:red;
-}     
+} 
+div
+{
+    border:
+    }    
  
      
      
@@ -53,6 +53,7 @@ color: black;
 </head>
 <body>
     <form id="form1" runat="server">
+    <div class="container-fluid">
 <div class="row" >
 <div class="col-md-4" style="background-color:#f266d9;"></div>
 
@@ -82,10 +83,11 @@ color: black;
 <div class="row" >
 <div class="col-md-4"  style="background-color:#f266d9;"></div>
 <div class="col-md-4">
-    <div class="row" style="padding:0px; border-style:dashed;border-width:2px;border-color:black;" ><img src="pics/restro4.jpg" width="100%" height="200px" ></div>
-    <div class="row"  style="padding:0px; border-style:dashed;border-width:2px;border-color:black;"><img src="pics/restro6.jpg" width="100%" height="200px"></div>
+    <div class="row" style="padding:0px;" ><img src="pics/restro4.jpg" width="100%" height="200px" ></div>
+    <div class="row"  style="padding:0px;"><img src="pics/restro6.jpg" width="100%" height="200px"></div>
 </div>
 <div class="col-md-4" style="background-color:#f266d9;"></div>
+</div>
 </div>
 
 
